@@ -347,57 +347,6 @@ set(gca,'fontweight','bold','fontsize',40)
 ylabel('$e^z_W \ (deg/s)$','interpreter','latex')
 set(gca,'FontSize',40)
 xlabel('$ time (s)$','interpreter','latex')
-grid on
-% 
-% 
-% figure(8)
-% t=linspace(0,simulation_time,samples);
-% plot(t,delta(1,1:samples),'-','Linewidth',1,'color','blue')
-% hold on;
-% plot(t,model_error(1,1:samples),'-','Linewidth',1,'color','red')
-% set(gca,'TickLabelInterpreter','latex');
-% set(gca,'fontweight','bold','fontsize',40) 
-% ylabel('$model\ error$','interpreter','latex')
-% set(gca,'FontSize',40)
-% xlabel('$ time (s)$','interpreter','latex')
-% ylim([-1.5,1.5])
-% grid on
-% 
-% figure(9)
-% t=linspace(0,simulation_time,samples);
-% plot(t,delta(2,1:samples),'-','Linewidth',1,'color','blue')
-% hold on;
-% plot(t,model_error(2,1:samples),'-','Linewidth',1,'color','red')
-% set(gca,'TickLabelInterpreter','latex');
-% set(gca,'fontweight','bold','fontsize',40) 
-% ylabel('$model\ error$','interpreter','latex')
-% set(gca,'FontSize',40)
-% xlabel('$ time (s)$','interpreter','latex')
-% ylim([-1.5,1.5])
-% grid on
-% 
-% 
-% figure(10)
-% t=linspace(0,simulation_time,samples);
-% plot(t,delta(3,1:samples),'-','Linewidth',1,'color','blue')
-% hold on;
-% plot(t,model_error(3,1:samples),'-','Linewidth',1,'color','red')
-% set(gca,'TickLabelInterpreter','latex');
-% set(gca,'fontweight','bold','fontsize',40) 
-% ylabel('$model\ error$','interpreter','latex')
-% set(gca,'FontSize',40)
-% xlabel('$ time (s)$','interpreter','latex')
-% ylim([-1.5,1.5])
-% grid on
-% 
-% figure(11)
-% t=linspace(0,simulation_time,samples);
-% plot(t,n(1,1:samples).*57.2957795,'-','Linewidth',1,'color','green')
-% set(gca,'TickLabelInterpreter','latex');
-% set(gca,'fontweight','bold','fontsize',40) 
-% ylabel('$||\delta(t)||$','interpreter','latex')
-% set(gca,'FontSize',40)
-% xlabel('$ time (s)$','interpreter','latex')
-% grid on
+grid on 
 
 
