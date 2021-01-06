@@ -20,7 +20,7 @@ an unknown deterministic disturbance that exerts on the existing system.
 </p>
 
 <p float="left">
-  <img src="figures_png/WY.png" width="400" height="220" style="filter: brightness(2);"/>
+  <img src="figures_png/WY.png" width="400" height="220" style="filter: brightness(0.1);"/>
   <img src="figures_png/WYmodel.png" width="400" height="220"/> 
 </p>
 
