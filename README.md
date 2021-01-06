@@ -25,6 +25,6 @@ an unknown deterministic disturbance that exerts on the existing system.
 </p>
 
 <p float="left">
-  <img src="figures_png/WZ.png" width="440" height="220"/>
-  <img src="figures_png/WZmodel.png" width="440" height="220"/> 
+  <img src="figures_png/WZ.png" width="400" height="220"/>
+  <img src="figures_png/WZmodel.png" width="400" height="220"/> 
 </p>
