@@ -9,4 +9,4 @@ white Gaussian noises. Subsequently, to stress the significance of the dual opti
 an unknown deterministic disturbance that exerts on the existing system.
 # Comparison Results
 
-![](images_eps/orientation.eps)
+![](figures_eps/orientation.eps)
