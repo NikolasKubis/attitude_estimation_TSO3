@@ -10,18 +10,18 @@ an unknown deterministic disturbance that exerts on the existing system.
 # Comparison Results
 
 <p float="left">
-  <img src="figures_png/orientation.png" width="440" height="220"/>
-  <img src="figures_png/orientationmodel.png" width="440" height="220"/> 
+  <img src="figures_png/orientation.png" width="400" height="220"/>
+  <img src="figures_png/orientationmodel.png" width="400" height="220"/> 
 </p>
 
 <p float="left">
-  <img src="figures_png/WX.png" width="440" height="220"/>
-  <img src="figures_png/WXmodel.png" width="440" height="220"/> 
+  <img src="figures_png/WX.png" width="400" height="220"/>
+  <img src="figures_png/WXmodel.png" width="400" height="220"/> 
 </p>
 
 <p float="left">
-  <img src="figures_png/WY.png" width="440" height="220"/>
-  <img src="figures_png/WYmodel.png" width="440" height="220"/> 
+  <img src="figures_png/WY.png" width="400" height="220"/>
+  <img src="figures_png/WYmodel.png" width="400" height="220"/> 
 </p>
 
 <p float="left">
