@@ -1,7 +1,8 @@
 % The Extended Kalman Filter.
 
- clear all;
+clear all;
 
+% inertia tensor
 inertia=diag([6*10^(0);7*10^(0);9*10^(0)]);
 
 dt=0.01;
@@ -10,52 +11,63 @@ simulation_time=100;
 
 samples=simulation_time/dt;
 
+
+% establishing a deterministic model error
 ll=1;
- for i=0:dt:simulation_time
+for i=0:dt:simulation_time
+    
+    model_error(:,ll)=0.0*[cos(((2*pi)/5)*i);sin(((2*pi)/5)*i);cos(((2*pi)/5)*i)*sin(((2*pi)/5)*i)];
+    
+    ll=ll+1;
+end
 
-model_error(:,ll)=0.0*[cos(((2*pi)/5)*i);sin(((2*pi)/5)*i);cos(((2*pi)/5)*i)*sin(((2*pi)/5)*i)];
-
-ll=ll+1;
- end
-
-
+% tracking directions are chosen to be constant. However, the filter works
+% with time varying reference directions as well.
 tracking_direction1=[0 0 1]';
 
 tracking_direction2=[0 1 0]';
 
+
+% motion initialization
 w=zeros(3,samples);
 
 q=zeros(4,samples);
 
 theta=1.8;
+
 l=[1 1 1];
 ll=l/norm(l);
 l1=ll(1);
 l2=ll(2);
 l3=ll(3);
 
-q(:,1)=[cos(theta/2) l1*sin(theta/2) l2*sin(theta/2) l3*sin(theta/2)];
+q(:,1)=[cos(theta/2) l1*sin(theta/2) l2*sin(theta/2) l3*sin(theta/2)]; % initial quaternion
 
 y1=zeros(3,samples);
 
 y2=zeros(3,samples);
 
+% initial angular rate in rad/sec
 w(:,1)=[0.3 0.2 0.1]';
 
 y=zeros(6,samples);
 
+d=0.01; % measurement noise variance (the two sensors are considered uncorelated)
 k=1;
 
 for i=0:dt:simulation_time
     
     nominal_input=[sin(((2*pi)/3)*i);cos(((2*pi)/1)*i);sin(((2*pi)/5)*i)];
     
+    % Lie-verlet integration scheme
     w_imp=w(:,k)+((dt/2)*(inv(inertia)*((skew(inertia*w(:,k))*w(:,k))+nominal_input)+inertia*model_error(:,k)));
     
     omega=0.5*[0 -w_imp'; w_imp -skew(w_imp)];
     
     q(:,k+1)=expm(dt*omega)*q(:,k);
     
+    
+    % newton solver
     norma=100;
     
     w_n=w_imp;
@@ -75,10 +87,10 @@ for i=0:dt:simulation_time
     w(:,k+1)=w_n_1;
     
     
-    y1(:,k)=output_matrix(q(:,k))'*tracking_direction1+((0.01))*randn(3,1);
+    y1(:,k)=output_matrix(q(:,k))'*tracking_direction1+((d))*randn(3,1);
     
     
-    y2(:,k)=output_matrix(q(:,k))'*tracking_direction2+((0.01))*randn(3,1);
+    y2(:,k)=output_matrix(q(:,k))'*tracking_direction2+((d))*randn(3,1);
     
     
     y(:,k)=[y1(:,k);y2(:,k)];
@@ -86,14 +98,19 @@ for i=0:dt:simulation_time
     k=k+1;
 end
 
+% filter's initialization
 
-r=5; 
+% //model error covariance (trial and error tunning)
+r=5;
 
 R1=r*eye(3);
 
 R2=r*eye(3);
+%//
 
-Q=0.01*eye(7,7); 
+
+
+Q=0.01*eye(7,7);
 
 R=[R1 zeros(3,3);zeros(3,3) R2];
 
@@ -146,7 +163,7 @@ for i=0:dt:simulation_time
     
     omega2=0.5*[0 -w_imp2'; w_imp2 -skew(w_imp2)];
     
-    q_est(:,k+1)=expm(dt*omega2)*q_est(:,k);
+    q_est(:,k+1)=expm(dt*omega2)*(q_est(:,k));
     
     norma=100;
     
