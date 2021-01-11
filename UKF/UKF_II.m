@@ -55,7 +55,7 @@ w(:,1)=[0.3 0.2 0.1]';
 
 y=zeros(6,samples);
 
-d=0.001; % measurement noise variance (the two sensors are considered uncorelated)
+d=0.01; % measurement noise variance (the two sensors are considered uncorelated)
 
 k=1;
 
@@ -127,6 +127,10 @@ y2_est(:,1)=output_matrix([1 0 0 0])'*tracking_direction2; % initial estimated o
 y_est(:,1)=[y1_est(:,1)' y2_est(:,1)']';
 
 L=7;
+
+SUMRMS=zeros(1,1);
+
+counter = 0;
 
 k=1;
 
@@ -209,12 +213,31 @@ for i=0:dt:simulation_time
     errorR(k)=acosd(1-(tr/2));
     %//
     
+     % calculating the RMSE
+    
+    SUMRMS=SUMRMS+norm(w_est(:,k)-w(:,k))^2;
+    
+    if k>4000 
+        
+    error_q=q_mult(q(:,k),q_ant(q_est(:,k)));
+    
+    error_theta(k)=((2*180)/pi)*acos(error_q(1));
+    
+    SUMRMS_or=SUMRMS_or+error_theta(k)^2;
+    
+    counter=counter+1;
+    
+    end
+    
+    
  k=k+1;
     
 end
 
 
+RMS=sqrt(SUMRMS/samples);
 
+RMS_or=sqrt(SUMRMS_or/counter);
 
 figure(1)
 
