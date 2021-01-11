@@ -12,6 +12,8 @@ The aim of this project is founded on the reasoning that stochastic modeling mig
 In contrast with Kalman-based filters, deterministic attitude and rate filtering can be easily formulated in a coordinate-free fashion as a dual optimal control problem. By doing so, the approach provides the ability to overcome the well-known singularity issues imposed by the interaction of the prefabricated Bayesian architectures with the various coordinate systems. 
 
 # Results
+Both deterministic filters outperform the Gaussian-approximate filters. This is mainly due to the fact that the necessary re-projection step induces a bias in the orientation estimates. Regarding the stochastic filters we conclude that due to the computational overhead of the UKF, the simplicity of the Jacobian matrix calculations, and the quasi-linear nature of the quaternion dynamics, the EKF is a better choice for the task.
+ 
 Attitude and rate estimation errors for UAV: Stochastic approach (left), Deterministic approach (right).
 
 <p float="left">
