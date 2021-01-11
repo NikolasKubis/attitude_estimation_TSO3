@@ -14,7 +14,7 @@ In contrast with Kalman-based filters, deterministic attitude and rate filtering
 # Results
 Both deterministic filters outperform the Gaussian-approximate filters. This is mainly due to the fact that the necessary re-projection step induces a bias in the orientation estimates. Regarding the stochastic filters we conclude that due to the computational overhead of the UKF, the simplicity of the Jacobian matrix calculations, and the quasi-linear nature of the quaternion dynamics, the EKF is a better choice for the task.
  
-Attitude and rate estimation errors for UAV: Stochastic approach (left), Deterministic approach (right).
+Attitude and rate estimation errors for UAV: Stochastic modeling (left), Deterministic modeling (right).
 
 <p float="left">
   <img src="figures_png/orientation.png" width="400" height="220"/>
