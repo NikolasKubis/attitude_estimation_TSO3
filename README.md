@@ -8,11 +8,11 @@ A geometric filter and a second-order-optimal minimum energy filter are compared
 For both case studies, the measurement noise and model uncertainty are initially expressed under the stochastic reasoning. Subsequently, to stress the significance of the dual optimal control formulation, we replace the model error with an unknown deterministic disturbance that exerts the actual system.
 
 # Motivation
-The aim of this project is founded on the reasoning that stochastic modeling might be problematic for this specific problem and that the set membership approach emerges more naturally given that the state-space is a compact manifold.
-In contrast with Kalman-based filters, deterministic attitude and rate filtering can be easily formulated in a coordinate-free fashion as a dual optimal control problem. By doing so, the approach provides the ability to overcome the well-known singularity issues imposed by the interaction of the prefabricated Bayesian architectures with the various coordinate systems. 
+Stochastic modeling appears to be problematic for this specific problem. The set-membership approach emerges more naturally given that the state-space is a compact manifold. In contrast with Kalman-based filters, deterministic attitude and rate filtering can be easily formulated in a coordinate-free fashion as a dual optimal control problem. By doing so, this approach provides the ability to overcome the well-known singularity issues imposed by the interaction of the prefabricated Bayesian architectures with the various coordinate systems. 
 
 # Results
-Both deterministic filters outperform the Gaussian-approximate filters. This is mainly due to the fact that the necessary re-projection step induces a bias in the orientation estimates. Regarding the stochastic filters we conclude that due to the computational overhead of the UKF, the simplicity of the Jacobian matrix calculations, and the quasi-linear nature of the quaternion dynamics, the EKF is a better choice for the task.
+Both deterministic filters outperform the Gaussian-approximate filters. This is mainly due to the fact that the necessary re-projection step induces a bias in the orientation estimates. Regarding the stochastic filters we conclude that due to the computational overhead of the UKF, the simplicity of the Jacobian matrix calculations, and the quasi-linear nature of the quaternion dynamics, the EKF is 
+a better choice for the task.
  
 Attitude and rate estimation errors for UAV: Stochastic modeling (left), Deterministic modeling (right).
 
