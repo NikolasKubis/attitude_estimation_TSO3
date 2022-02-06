@@ -1,4 +1,4 @@
-# attitude_estimation
+# Attitude estimation
 
 This package provides attitude and rate estimation algorithms for aerial robotics applications. 
 Observations are gyro-free and are based on two vectorial measurements.
